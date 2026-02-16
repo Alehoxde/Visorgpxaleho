@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd" version="1.1">
+  <metadata>
+    <name>Recorrido ud</name>
+    <copyright author="Tracklia app (https://play.google.com/store/apps/details?id=app.tracklia)"/>
+    <time>2026-02-16T15:53:19Z</time>
+  </metadata>
+  <wpt lat="4.636749" lon="-74.06912">
+    <time>2026-02-16T15:30:20Z</time>
+    <name>A</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.635733" lon="-74.069159">
+    <time>2026-02-16T15:33:02Z</time>
+    <name>1</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.635577" lon="-74.068294">
+    <time>2026-02-16T15:33:23Z</time>
+    <name>2</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.634708" lon="-74.068412">
+    <time>2026-02-16T15:34:17Z</time>
+    <name>3</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.632854" lon="-74.068776">
+    <time>2026-02-16T15:42:48Z</time>
+    <name>4</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.632687" lon="-74.067837">
+    <time>2026-02-16T15:42:57Z</time>
+    <name>5</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.632399" lon="-74.066475">
+    <time>2026-02-16T15:43:05Z</time>
+    <name>6</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.631338" lon="-74.066516">
+    <time>2026-02-16T15:43:22Z</time>
+    <name>7</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.631159" lon="-74.065504">
+    <time>2026-02-16T15:43:32Z</time>
+    <name>8</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.630455" lon="-74.065639">
+    <time>2026-02-16T15:44:02Z</time>
+    <name>9</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.629587" lon="-74.06573">
+    <time>2026-02-16T15:44:12Z</time>
+    <name>10</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.628732" lon="-74.065959">
+    <time>2026-02-16T15:46:28Z</time>
+    <name>11</name>
+    <desc/>
+  </wpt>
+  <wpt lat="4.628096" lon="-74.065955">
+    <time>2026-02-16T15:50:28Z</time>
+    <name>12</name>
+    <desc/>
+  </wpt>
+</gpx>

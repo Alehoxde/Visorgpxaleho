@@ -2,12 +2,15 @@
 import os 
 import folium
 import exif 
+import gpxpy
 
 from exif import Image
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FOTOS_DIR = os.path.join(BASE_DIR, "Visorgpxaleho", "web", "fotos")
 OUTPUT_HTML = os.path.join(BASE_DIR, "Visorgpxaleho", "web", "index.html")
+GPX_FILE = os.path.join(BASE_DIR,  "Visorgpxaleho", "data", "ruta.gpx")
 
 
 
@@ -41,12 +44,22 @@ def leer_exif_gps(ruta_foto_ciclo_actual):
         lat_decimal = convertir_a_decimal(latitud, lat_ref)
         lon_decimal = convertir_a_decimal(longitud, lon_ref)
 
-        print("REF:", lat_ref, lon_ref)
-
-
+        print(lat_decimal, lon_decimal)
+        print(f"Latitud: {lat_decimal}, Longitud: {lon_decimal}")
+        print(f"Foto: {ruta_foto_ciclo_actual} - Latitud: {lat_decimal}, Longitud: {lon_decimal}")
         return lat_decimal, lon_decimal
     
 
+def leer_gpx(ruta_gpx):
+    coords = []
+    with open(ruta_gpx, "r", encoding="utf-8") as f:
+        gpx = gpxpy.parse(f)
+
+    for track in gpx.tracks:
+        for segment in track.segments:
+            for p in segment.points:
+                coords.append((p.latitude, p.longitude))
+    return coords
 
 #Funcion Principal para generar el mapa con las fotos
 def generar_mapa():
@@ -54,7 +67,14 @@ def generar_mapa():
     print(FOTOS_DIR)
     if os.path.isdir(FOTOS_DIR): 
 
-        coordenadas = []
+        coordenadas_archivo_gpx = leer_gpx(GPX_FILE)
+        folium.PolyLine(
+        coordenadas_archivo_gpx,
+        color="blue",
+        weight=4,
+        tooltip="ruta.gpx"
+        ).add_to(mapa)
+
 
         for img in os.listdir(FOTOS_DIR):
             print(img)
@@ -64,8 +84,6 @@ def generar_mapa():
                 if gps:
                     latitud, longitud = gps
                         
-                    coordenadas.append((latitud, longitud))
-
                     html_marcador_foto_ciclo_actual = f"""
                     <b>{img}</b><br>
                     <img src="fotos/{img}" width="250">
@@ -78,13 +96,9 @@ def generar_mapa():
                         popup=folium.Popup(html_marcador_foto_ciclo_actual, max_width=300),
                         icon=folium.Icon(icon="camera", prefix="fa")
                     ).add_to(mapa) 
-        if len(coordenadas) > 1:
-            coordenadas.append(coordenadas[0])
-            folium.PolyLine(
-            locations=coordenadas,
-            weight=4
-            ).add_to(mapa)
                
+
+
         mapa.save(OUTPUT_HTML)
         print(f"Mapa generado exitosamente en {OUTPUT_HTML}")
 

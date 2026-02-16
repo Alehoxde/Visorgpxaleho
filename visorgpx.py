@@ -49,7 +49,6 @@ def leer_exif_gps(ruta_foto_ciclo_actual):
         print(f"Foto: {ruta_foto_ciclo_actual} - Latitud: {lat_decimal}, Longitud: {lon_decimal}")
         return lat_decimal, lon_decimal
     
-
 def leer_gpx(ruta_gpx):
     coords = []
     with open(ruta_gpx, "r", encoding="utf-8") as f:
@@ -59,7 +58,18 @@ def leer_gpx(ruta_gpx):
         for segment in track.segments:
             for p in segment.points:
                 coords.append((p.latitude, p.longitude))
+
+    for route in gpx.routes:
+        for p in route.points:
+            coords.append((p.latitude, p.longitude))
+
+    if not coords and gpx.waypoints:
+        for wpt in gpx.waypoints:
+            coords.append((wpt.latitude, wpt.longitude))
+
+
     return coords
+
 
 #Funcion Principal para generar el mapa con las fotos
 def generar_mapa():
